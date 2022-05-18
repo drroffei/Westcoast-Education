@@ -1,0 +1,5 @@
+1. Skapa Solution med relevanta mappar
+2. Skapa ett Web Api projekt med controllers
+3. Skapa relevanta modeller.
+4. Skapa db
+5. Skapa en repo
