@@ -1,27 +1,30 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using webapi.Data;
+using webapi.Interfaces;
 using webapi.Models;
 using webapi.ViewModels;
 
 namespace webapi.Controllers
 {
     [ApiController]
-    [Route("api/v1/course")]
-    public class CourseController : ControllerBase
+    [Route("api/v1/education")]
+    public class EducationController : ControllerBase
     {
         private readonly EducationContext _context;
+        private readonly IEducationRepository _repository;
 
-        public CourseController(EducationContext context)
+        public EducationController(EducationContext context, IEducationRepository repository)
         {
+            _repository = repository;
             _context = context;
         }
 
         [HttpGet()]
         public async Task<List<CourseViewModel>> GetCourses()
         {
-            var result = await _context.Courses.ToListAsync();
-            List<CourseViewModel> listOfCourses = new List<CourseViewModel>();
+            var result = await _repository.ListAllCourseAsync();;
+            var coursesList = new List<CourseViewModel>();
             foreach (var course in result)
             {
                 CourseViewModel courseVM = new CourseViewModel{
@@ -30,15 +33,15 @@ namespace webapi.Controllers
                     Duration = course.Duration                
                 };
 
-                listOfCourses.Add(courseVM);                
+                coursesList.Add(courseVM);                
             }
-            return listOfCourses;
+            return coursesList;
         }
 
         [HttpGet("bycategory/{category}")]
         public async Task<List<CourseViewModel>> GetCoursesByCategory(string category)
         {
-            var result = await _context.Courses.Where(c => c.Category.ToLower().Contains(category.ToLower())).ToListAsync();
+            var result = await _context.Courses.Where(c => c.Category!.ToLower().Contains(category.ToLower())).ToListAsync();
             List<CourseViewModel> listOfCourses = new List<CourseViewModel>();
             foreach (var course in result)
             {   

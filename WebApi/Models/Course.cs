@@ -12,5 +12,7 @@ namespace webapi.Models
         public string? Category { get; set; }
         public string? Description { get; set; }
         public string? Details { get; set; }
+        public List<Customer>? Customers { get; set; }
+        public Teacher? Teacher { get; set; }
     }
 }

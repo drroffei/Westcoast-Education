@@ -41,7 +41,12 @@ namespace webapi.Migrations
                     b.Property<int>("Duration")
                         .HasColumnType("INTEGER");
 
+                    b.Property<int>("TeacherId")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("CourseId");
+
+                    b.HasIndex("TeacherId");
 
                     b.ToTable("Courses");
                 });
@@ -54,6 +59,9 @@ namespace webapi.Migrations
 
                     b.Property<string>("Address")
                         .HasColumnType("TEXT");
+
+                    b.Property<int?>("CourseId")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Email")
                         .HasColumnType("TEXT");
@@ -68,6 +76,8 @@ namespace webapi.Migrations
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CourseId");
 
                     b.ToTable("Customers");
                 });
@@ -117,11 +127,34 @@ namespace webapi.Migrations
                     b.ToTable("Teachers");
                 });
 
+            modelBuilder.Entity("webapi.Models.Course", b =>
+                {
+                    b.HasOne("webapi.Models.Teacher", "Teacher")
+                        .WithMany()
+                        .HasForeignKey("TeacherId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Teacher");
+                });
+
+            modelBuilder.Entity("webapi.Models.Customer", b =>
+                {
+                    b.HasOne("webapi.Models.Course", null)
+                        .WithMany("Customers")
+                        .HasForeignKey("CourseId");
+                });
+
             modelBuilder.Entity("webapi.Models.Skill", b =>
                 {
                     b.HasOne("webapi.Models.Teacher", null)
                         .WithMany("Skills")
                         .HasForeignKey("TeacherId");
+                });
+
+            modelBuilder.Entity("webapi.Models.Course", b =>
+                {
+                    b.Navigation("Customers");
                 });
 
             modelBuilder.Entity("webapi.Models.Teacher", b =>
