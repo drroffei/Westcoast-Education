@@ -98,7 +98,7 @@ namespace webapi.Repository
                 TeacherViewModel teacherVM = new TeacherViewModel{
                     FirstName = teacher.FirstName,
                     LastName = teacher.LastName,
-                    Skills = teacher.Skills
+                    Skills = teacher.TeacherSkill
                 };
                 listTeacherVM.Add(teacherVM);
             }
