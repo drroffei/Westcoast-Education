@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Code\\WebDev Övningar\\westcoast-education\\webapi\\webapi.csproj": {}
+    "C:\\Code\\webdev course\\westcoast education\\webapi\\webapi.csproj": {}
   },
   "projects": {
-    "C:\\Code\\WebDev Övningar\\westcoast-education\\webapi\\webapi.csproj": {
+    "C:\\Code\\webdev course\\westcoast education\\webapi\\webapi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Code\\WebDev Övningar\\westcoast-education\\webapi\\webapi.csproj",
+        "projectUniqueName": "C:\\Code\\webdev course\\westcoast education\\webapi\\webapi.csproj",
         "projectName": "webapi",
-        "projectPath": "C:\\Code\\WebDev Övningar\\westcoast-education\\webapi\\webapi.csproj",
-        "packagesPath": "C:\\Users\\drrof\\.nuget\\packages\\",
-        "outputPath": "C:\\Code\\WebDev Övningar\\westcoast-education\\webapi\\obj\\",
+        "projectPath": "C:\\Code\\webdev course\\westcoast education\\webapi\\webapi.csproj",
+        "packagesPath": "C:\\Users\\Henke\\.nuget\\packages\\",
+        "outputPath": "C:\\Code\\webdev course\\westcoast education\\webapi\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\drrof\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Henke\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -77,7 +81,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.105\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -12,5 +12,12 @@ namespace webapi.Data
         public DbSet<Course> Courses => Set<Course>();
         public DbSet<Customer> Customers => Set<Customer>();
         public DbSet<Teacher> Teachers => Set<Teacher>();
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            //Write Fluent API configurations here
+            modelBuilder.Entity<CourseCustomerCurrent>().HasKey(cc => new{cc.CourseId, cc.CustomerId} );
+            modelBuilder.Entity<CourseCustomerFinished>().HasKey(cc => new{cc.CourseId, cc.CustomerId} );
         }
+    }
 }

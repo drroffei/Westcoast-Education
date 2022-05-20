@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using webapi.Data;
 
@@ -10,9 +11,10 @@ using webapi.Data;
 namespace webapi.Migrations
 {
     [DbContext(typeof(EducationContext))]
-    partial class EducationContextModelSnapshot : ModelSnapshot
+    [Migration("20220520112622_added relationships")]
+    partial class addedrelationships
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.5");
@@ -24,22 +26,21 @@ namespace webapi.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Category")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("CourseName")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<int>("CourseNumber")
                         .HasColumnType("INTEGER");
 
+                    b.Property<int?>("CustomerId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Details")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<int>("Duration")
@@ -49,6 +50,8 @@ namespace webapi.Migrations
                         .HasColumnType("INTEGER");
 
                     b.HasKey("CourseId");
+
+                    b.HasIndex("CustomerId");
 
                     b.HasIndex("TeacherId");
 
@@ -65,8 +68,7 @@ namespace webapi.Migrations
 
                     b.HasKey("CourseId", "CustomerId");
 
-                    b.HasIndex("CustomerId")
-                        .IsUnique();
+                    b.HasIndex("CustomerId");
 
                     b.ToTable("CourseCustomerCurrent");
                 });
@@ -93,26 +95,26 @@ namespace webapi.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Address")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("CurrentCourseId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Email")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("FirstName")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("LastName")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("PhoneNumber")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CurrentCourseId");
 
                     b.ToTable("Customers");
                 });
@@ -164,6 +166,10 @@ namespace webapi.Migrations
 
             modelBuilder.Entity("webapi.Models.Course", b =>
                 {
+                    b.HasOne("webapi.Models.Customer", null)
+                        .WithMany("FinishedCourses")
+                        .HasForeignKey("CustomerId");
+
                     b.HasOne("webapi.Models.Teacher", "Teacher")
                         .WithMany()
                         .HasForeignKey("TeacherId")
@@ -182,8 +188,8 @@ namespace webapi.Migrations
                         .IsRequired();
 
                     b.HasOne("webapi.Models.Customer", "Customer")
-                        .WithOne("CurrentCourse")
-                        .HasForeignKey("webapi.Models.CourseCustomerCurrent", "CustomerId")
+                        .WithMany()
+                        .HasForeignKey("CustomerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -201,7 +207,7 @@ namespace webapi.Migrations
                         .IsRequired();
 
                     b.HasOne("webapi.Models.Customer", "Customer")
-                        .WithMany("FinishedCourses")
+                        .WithMany()
                         .HasForeignKey("CustomerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -209,6 +215,17 @@ namespace webapi.Migrations
                     b.Navigation("Course");
 
                     b.Navigation("Customer");
+                });
+
+            modelBuilder.Entity("webapi.Models.Customer", b =>
+                {
+                    b.HasOne("webapi.Models.Course", "CurrentCourse")
+                        .WithMany()
+                        .HasForeignKey("CurrentCourseId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("CurrentCourse");
                 });
 
             modelBuilder.Entity("webapi.Models.Skill", b =>
@@ -227,8 +244,6 @@ namespace webapi.Migrations
 
             modelBuilder.Entity("webapi.Models.Customer", b =>
                 {
-                    b.Navigation("CurrentCourse");
-
                     b.Navigation("FinishedCourses");
                 });
 

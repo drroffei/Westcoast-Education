@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace webapi.Models
 {
@@ -6,13 +7,22 @@ namespace webapi.Models
     {
         [Key]
         public int CourseId { get; set; }
+        [Required]
         public int CourseNumber { get; set; }
+        [Required]
         public string? CourseName { get; set; }
+        [Required]
         public int Duration { get; set; }
+        [Required]
         public string? Category { get; set; }
+        [Required]
         public string? Description { get; set; }
+        [Required]
         public string? Details { get; set; }
-        public List<Customer>? Customers { get; set; }
+        public List<CourseCustomerCurrent>? CurrentCustomers { get; set; } = new List<CourseCustomerCurrent>();
+        public List<CourseCustomerFinished>? FinishedCustomers { get; set; } = new List<CourseCustomerFinished>();
+        public int TeacherId { get; set; }
+        [ForeignKey("TeacherId")]
         public Teacher? Teacher { get; set; }
     }
 }

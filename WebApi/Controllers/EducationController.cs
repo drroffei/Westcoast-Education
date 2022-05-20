@@ -22,61 +22,52 @@ namespace webapi.Controllers
 
         [HttpGet()]
         public async Task<List<CourseViewModel>> GetCourses()
-        {
-            var result = await _repository.ListAllCourseAsync();;
-            var coursesList = new List<CourseViewModel>();
-            foreach (var course in result)
-            {
-                CourseViewModel courseVM = new CourseViewModel{
-                    CourseNumber = course.CourseNumber,
-                    CourseName = course.CourseName,
-                    Duration = course.Duration                
-                };
-
-                coursesList.Add(courseVM);                
-            }
-            return coursesList;
+        {            
+            return await _repository.ListAllCourseAsync();
         }
 
         [HttpGet("bycategory/{category}")]
         public async Task<List<CourseViewModel>> GetCoursesByCategory(string category)
         {
-            var result = await _context.Courses.Where(c => c.Category!.ToLower().Contains(category.ToLower())).ToListAsync();
-            List<CourseViewModel> listOfCourses = new List<CourseViewModel>();
-            foreach (var course in result)
-            {   
-                CourseViewModel courseVM = new CourseViewModel{
-                    CourseNumber = course.CourseNumber,
-                    CourseName = course.CourseName,
-                    Duration = course.Duration                
-                };
+            return await _repository.GetCoursesByCategoryAsync(category);
+        }
 
-                listOfCourses.Add(courseVM);                
-            }
-            return listOfCourses;
+        [HttpGet("bycoursenumber/{coursenumber}")]
+        public async Task<CourseViewModel> GetCoursesByCoursenumber(int coursenumber)
+        {
+            return await _repository.GetCourseByCoursenumberAsync(coursenumber);
         }
 
         [HttpPost()]
         public async Task<ActionResult> CreateCourse(PostCourseViewModel model)
         {
-            if (model == null)
+            try
             {
-                return BadRequest("Input model was null");
+                await _repository.CreateCourseAsync(model);
+                
+                if (await _repository.SaveAllAsync())
+                {
+                    return StatusCode(201, "Bilen har sparats i systemet");                
+                }
+                else{
+                    return BadRequest();
+                }                
             }
-            else
+            catch (System.Exception)
             {
-                Course newCourse = new Course{
-                    CourseNumber = model.CourseNumber,
-                    CourseName = model.CourseName,
-                    Duration = model.Duration,
-                    Category = model.Category,
-                    Description = model.Description,
-                    Details = model.Details
-                };
-                _context.Courses.Add(newCourse);
-                await _context.SaveChangesAsync();
-            }
-            return Ok("Course created.");
+                return StatusCode(500, "Internt serverfel");
+            }            
+        }
+
+        [HttpGet("/teachers")]
+        public async Task<List<TeacherViewModel>> ListAllTeachers()
+        {
+            return await _repository.ListAllTeachersAsync();
+        }
+        [HttpGet("/teachers")]
+        public async Task<List<CustomerViewModel>> ListAllCustomers()
+        {
+            return await _repository.ListAllCustomersAsync();
         }
     }
 }
