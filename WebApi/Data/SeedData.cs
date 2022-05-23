@@ -17,25 +17,45 @@ namespace webapi.Data
 
         }
 
-        public async Task SeedDb()
+        public static async Task SeedDb(EducationContext _context)
         {
-            if (await SeedTeachers()) Console.WriteLine("Teachers seeded");
-            Console.WriteLine("Teachers not seeded");
+            if (await SeedTeachers(_context))
+            {
+                Console.WriteLine("Teachers seeded");
+            }
+            else
+            {
+                Console.WriteLine("Teachers not seeded");
+            }
 
+            if (await SeedCourses(_context))
+            {
+                Console.WriteLine("Courses seeded");
+            }
+            else
+            {
+                Console.WriteLine("Courses not seeded");
+            }
 
-            if (await SeedCourses()) Console.WriteLine("Courses seeded");
-            Console.WriteLine("Courses not seeded");
-
-            if (await SeedCustomers()) Console.WriteLine("Customers seeded");
-            Console.WriteLine("Customers not seeded");
+            if (await SeedCustomers(_context))
+            {
+                Console.WriteLine("Customers seeded");
+            }
+            else
+            {
+                Console.WriteLine("Customers not seeded");
+            }
         }
 
-        private async Task<bool> SeedCustomers()
+        private static async Task<bool> SeedCustomers(EducationContext _context)
         {
-            if (await _context.Customers.AnyAsync()) return false;
+            if (await _context.Customers.AnyAsync())
+            {
+                return false;
+            }
 
-            var listOfCourses = await _context.Courses.ToListAsync();
-
+            var coursesList = await _context.Courses.ToListAsync();
+            var listOfCustomers = new List<Customer>();
 
             Customer customer1 = new Customer
             {
@@ -44,9 +64,10 @@ namespace webapi.Data
                 Email = "Adam.Adamsson@mail.com",
                 PhoneNumber = "07098765432",
                 Address = "Gångvägen 1",
-                CurrentCourse = new CourseCustomerCurrent { },
                 FinishedCourses = new List<CourseCustomerFinished>()
             };
+            listOfCustomers.Add(customer1);
+
             Customer customer2 = new Customer
             {
                 FirstName = "Berit",
@@ -54,9 +75,10 @@ namespace webapi.Data
                 Email = "Berit.Beritsson@mail.com",
                 PhoneNumber = "07098765432",
                 Address = "Markstigen 2",
-                CurrentCourse = new CourseCustomerCurrent { },
                 FinishedCourses = new List<CourseCustomerFinished>()
             };
+            listOfCustomers.Add(customer2);
+
             Customer customer3 = new Customer
             {
                 FirstName = "Charlie",
@@ -64,9 +86,10 @@ namespace webapi.Data
                 Email = "Charlie.Charliesson@mail.com",
                 PhoneNumber = "07098765432",
                 Address = "Bostadsvägen 3",
-                CurrentCourse = new CourseCustomerCurrent { },
                 FinishedCourses = new List<CourseCustomerFinished>()
             };
+            listOfCustomers.Add(customer3);
+
             Customer customer4 = new Customer
             {
                 FirstName = "Daniella",
@@ -74,9 +97,10 @@ namespace webapi.Data
                 Email = "Daniella.Daniellasson@mail.com",
                 PhoneNumber = "07098765432",
                 Address = "Huvudleden 4",
-                CurrentCourse = new CourseCustomerCurrent { },
                 FinishedCourses = new List<CourseCustomerFinished>()
             };
+            listOfCustomers.Add(customer4);
+
             Customer customer5 = new Customer
             {
                 FirstName = "Erik",
@@ -84,9 +108,10 @@ namespace webapi.Data
                 Email = "Erik.Eriksson@mail.com",
                 PhoneNumber = "07098765432",
                 Address = "Sidbanan 5",
-                CurrentCourse = new CourseCustomerCurrent { },
                 FinishedCourses = new List<CourseCustomerFinished>()
             };
+            listOfCustomers.Add(customer5);
+
             Customer customer6 = new Customer
             {
                 FirstName = "Filip",
@@ -94,9 +119,10 @@ namespace webapi.Data
                 Email = "Filip.Filipsson@mail.com",
                 PhoneNumber = "07098765432",
                 Address = "Parkområdet 6",
-                CurrentCourse = new CourseCustomerCurrent { },
                 FinishedCourses = new List<CourseCustomerFinished>()
             };
+            listOfCustomers.Add(customer6);
+
             Customer customer7 = new Customer
             {
                 FirstName = "Gabriella",
@@ -104,9 +130,10 @@ namespace webapi.Data
                 Email = "Gabriella.Gabriellasson@mail.com",
                 PhoneNumber = "07098765432",
                 Address = "Skogsberget 7",
-                CurrentCourse = new CourseCustomerCurrent { },
                 FinishedCourses = new List<CourseCustomerFinished>()
             };
+            listOfCustomers.Add(customer7);
+
             Customer customer8 = new Customer
             {
                 FirstName = "Henry",
@@ -114,9 +141,10 @@ namespace webapi.Data
                 Email = "Henry.Henrysson@mail.com",
                 PhoneNumber = "07098765432",
                 Address = "Gatuleden 8",
-                CurrentCourse = new CourseCustomerCurrent { },
                 FinishedCourses = new List<CourseCustomerFinished>()
             };
+            listOfCustomers.Add(customer8);
+
             Customer customer9 = new Customer
             {
                 FirstName = "Ingrid",
@@ -124,9 +152,10 @@ namespace webapi.Data
                 Email = "Ingrid.Ingridsson@mail.com",
                 PhoneNumber = "07098765432",
                 Address = "Hamnleden 9",
-                CurrentCourse = new CourseCustomerCurrent { },
                 FinishedCourses = new List<CourseCustomerFinished>()
             };
+            listOfCustomers.Add(customer9);
+
             Customer customer10 = new Customer
             {
                 FirstName = "Johan",
@@ -134,9 +163,10 @@ namespace webapi.Data
                 Email = "Johan.Johansson@mail.com",
                 PhoneNumber = "07098765432",
                 Address = "Stiggatan 10",
-                CurrentCourse = new CourseCustomerCurrent { },
                 FinishedCourses = new List<CourseCustomerFinished>()
             };
+            listOfCustomers.Add(customer10);
+
             Customer customer11 = new Customer
             {
                 FirstName = "Karl",
@@ -144,9 +174,11 @@ namespace webapi.Data
                 Email = "Karl.Karlsson@mail.com",
                 PhoneNumber = "07098765432",
                 Address = "Platstorget 11",
-                CurrentCourse = new CourseCustomerCurrent { },
                 FinishedCourses = new List<CourseCustomerFinished>()
+
             };
+            listOfCustomers.Add(customer11);
+
             Customer customer12 = new Customer
             {
                 FirstName = "Lennart",
@@ -154,80 +186,77 @@ namespace webapi.Data
                 Email = "Lennart.Lennartsson@mail.com",
                 PhoneNumber = "07098765432",
                 Address = "Storstigen 12",
-                CurrentCourse = new CourseCustomerCurrent { },
                 FinishedCourses = new List<CourseCustomerFinished>()
             };
+            listOfCustomers.Add(customer12);
 
-            foreach (var course in listOfCourses)
+            foreach (var course in coursesList)
             {
                 if (course.CourseName == "Webbutveckling")
                 {
-                    customer10.CurrentCourse.Course = course;
-                    customer10.CurrentCourse.Customer = customer10;
-                    customer11.CurrentCourse.Course = course;
-                    customer11.CurrentCourse.Customer = customer11;
-                    customer12.CurrentCourse.Course = course;
-                    customer12.CurrentCourse.Customer = customer12;
-                    customer1.FinishedCourses.Add(new CourseCustomerFinished{Course = course, Customer = customer1});
+                    customer10.CurrentCourse = new CourseCustomerCurrent{CustomerId = customer10.Id, CourseId = course.CourseId};
+                    customer11.CurrentCourse = new CourseCustomerCurrent{CustomerId = customer11.Id, CourseId = course.CourseId};
+                    customer12.CurrentCourse = new CourseCustomerCurrent{CustomerId = customer12.Id, CourseId = course.CourseId};
+                    customer7.FinishedCourses.Add(new CourseCustomerFinished{CustomerId = customer7.Id, CourseId = course.CourseId});
+                    customer5.FinishedCourses.Add(new CourseCustomerFinished{CustomerId = customer5.Id, CourseId = course.CourseId});
                     break;
                 }
             }
 
-            foreach (var course in listOfCourses)
+            foreach (var course in coursesList)
             {
                 if (course.CourseName == "Databas")
                 {
-                    customer7.CurrentCourse.Course = course;
-                    customer7.CurrentCourse.Customer = customer7;
-                    customer8.CurrentCourse.Course = course;
-                    customer8.CurrentCourse.Customer = customer8;
-                    customer9.CurrentCourse.Course = course;
-                    customer9.CurrentCourse.Customer = customer9;
-                    customer1.FinishedCourses.Add(new CourseCustomerFinished{Course = course, Customer = customer1});
-                    customer3.FinishedCourses.Add(new CourseCustomerFinished{Course = course, Customer = customer3});
+                    customer7.CurrentCourse = new CourseCustomerCurrent{CustomerId = customer7.Id, CourseId = course.CourseId};
+                    customer8.CurrentCourse = new CourseCustomerCurrent{CustomerId = customer8.Id, CourseId = course.CourseId};
+                    customer9.CurrentCourse = new CourseCustomerCurrent{CustomerId = customer9.Id, CourseId = course.CourseId};
+                    customer1.FinishedCourses.Add(new CourseCustomerFinished{CustomerId = customer1.Id, CourseId = course.CourseId});
+                    customer4.FinishedCourses.Add(new CourseCustomerFinished{CustomerId = customer4.Id, CourseId = course.CourseId});
+                    customer5.FinishedCourses.Add(new CourseCustomerFinished{CustomerId = customer5.Id, CourseId = course.CourseId});
+                    customer3.FinishedCourses.Add(new CourseCustomerFinished{CustomerId = customer3.Id, CourseId = course.CourseId});
                     break;
                 }
             }
 
-            foreach (var course in listOfCourses)
+            foreach (var course in coursesList)
             {
                 if (course.CourseName == "Java Fullstack")
                 {
-                    customer4.CurrentCourse.Course = course;
-                    customer4.CurrentCourse.Customer = customer4;
-                    customer5.CurrentCourse.Course = course;
-                    customer5.CurrentCourse.Customer = customer5;
-                    customer6.CurrentCourse.Course = course;
-                    customer6.CurrentCourse.Customer = customer6;
+                    customer4.CurrentCourse = new CourseCustomerCurrent{CustomerId = customer4.Id, CourseId = course.CourseId};
+                    customer5.CurrentCourse = new CourseCustomerCurrent{CustomerId = customer5.Id, CourseId = course.CourseId};
+                    customer6.CurrentCourse = new CourseCustomerCurrent{CustomerId = customer6.Id, CourseId = course.CourseId};
+                    customer1.FinishedCourses.Add(new CourseCustomerFinished{CustomerId = customer1.Id, CourseId = course.CourseId});
                     break;
                 }
             }
 
-            foreach (var course in listOfCourses)
+            foreach (var course in coursesList)
             {
                 if (course.CourseName == ".NET Fullstack")
                 {
-                    customer1.CurrentCourse.Course = course;
-                    customer1.CurrentCourse.Customer = customer1;
-                    customer2.CurrentCourse.Course = course;
-                    customer2.CurrentCourse.Customer = customer2;
-                    customer3.CurrentCourse.Course = course;
-                    customer3.CurrentCourse.Customer = customer3;
-                    customer5.FinishedCourses.Add(new CourseCustomerFinished{Course = course, Customer = customer5});
-
+                    customer1.CurrentCourse = new CourseCustomerCurrent{CustomerId = customer1.Id, CourseId = course.CourseId};
+                    customer2.CurrentCourse = new CourseCustomerCurrent{CustomerId = customer2.Id, CourseId = course.CourseId};
+                    customer3.CurrentCourse = new CourseCustomerCurrent{CustomerId = customer3.Id, CourseId = course.CourseId};
+                    customer6.FinishedCourses.Add(new CourseCustomerFinished{CustomerId = customer6.Id, CourseId = course.CourseId});
                     break;
                 }
             }
 
-
+            await _context.Customers.AddRangeAsync(listOfCustomers);
+            await _context.SaveChangesAsync();
 
             return true;
 
         }
 
-        public async Task<bool> SeedTeachers()
+        public static async Task<bool> SeedTeachers(EducationContext _context)
         {
-            if (await _context.Teachers.AnyAsync()) return false;
+            if (await _context.Teachers.AnyAsync())
+            {
+                return false;
+            }
+
+            var listOfTeachers = new List<Teacher>();
 
             Teacher teacher1 = new Teacher
             {
@@ -240,6 +269,7 @@ namespace webapi.Data
                                             new Skill{SkillName = "Backend"},
                                             new Skill{SkillName = "C#"}}
             };
+            listOfTeachers.Add(teacher1);
 
             Teacher teacher2 = new Teacher
             {
@@ -252,6 +282,7 @@ namespace webapi.Data
                                             new Skill{SkillName = "Java"},
                                             new Skill{SkillName = "JavaScript"}}
             };
+            listOfTeachers.Add(teacher2);
 
             Teacher teacher3 = new Teacher
             {
@@ -263,13 +294,22 @@ namespace webapi.Data
                 TeacherSkill = new List<Skill>{new Skill{SkillName = "Databas"},
                                             new Skill{SkillName = "C#"}}
             };
+            listOfTeachers.Add(teacher3);
+
+            await _context.Teachers.AddRangeAsync(listOfTeachers);
+            await _context.SaveChangesAsync();
 
             return true;
         }
 
-        public async Task<bool> SeedCourses()
+        public static async Task<bool> SeedCourses(EducationContext _context)
         {
-            if (await _context.Courses.AnyAsync()) return false;
+            if (await _context.Courses.AnyAsync())
+            {
+                return false;
+            }
+
+            var listOfCourses = await _context.Courses.ToListAsync();
 
             Course course1 = new Course
             {
@@ -281,41 +321,46 @@ namespace webapi.Data
                 Details = "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
             };
             course1.Teacher = await _context.Teachers.FirstOrDefaultAsync(t => t.FirstName == "Anna");
+            listOfCourses.Add(course1);
 
             Course course2 = new Course
             {
                 CourseNumber = 1002,
                 CourseName = "Java Fullstack",
                 Duration = 24,
-                Category = ".NET",
+                Category = "Java",
                 Description = "Lorem ipsum dolor",
                 Details = "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
             };
             course2.Teacher = await _context.Teachers.FirstOrDefaultAsync(t => t.FirstName == "Bengt");
+            listOfCourses.Add(course2);
 
             Course course3 = new Course
             {
                 CourseNumber = 1003,
-                CourseName = "Databas",
+                CourseName = "SQL",
                 Duration = 24,
-                Category = ".NET",
+                Category = "Databas",
                 Description = "Lorem ipsum dolor",
                 Details = "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
             };
             course3.Teacher = await _context.Teachers.FirstOrDefaultAsync(t => t.FirstName == "Calle");
+            listOfCourses.Add(course3);
 
             Course course4 = new Course
             {
                 CourseNumber = 1004,
                 CourseName = "Webbutveckling",
                 Duration = 24,
-                Category = ".NET",
+                Category = "Webbutveckling",
                 Description = "Lorem ipsum dolor",
                 Details = "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
             };
             course4.Teacher = await _context.Teachers.FirstOrDefaultAsync(t => t.FirstName == "Bengt");
+            listOfCourses.Add(course4);
 
-
+            await _context.Courses.AddRangeAsync(listOfCourses);
+            await _context.SaveChangesAsync();
 
             return true;
         }

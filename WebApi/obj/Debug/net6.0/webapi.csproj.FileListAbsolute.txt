@@ -106,3 +106,7 @@ C:\Code\WebDev Övningar\Westcoast-Education\WebApi\obj\Debug\net6.0\refint\weba
 C:\Code\WebDev Övningar\Westcoast-Education\WebApi\obj\Debug\net6.0\webapi.pdb
 C:\Code\WebDev Övningar\Westcoast-Education\WebApi\obj\Debug\net6.0\webapi.genruntimeconfig.cache
 C:\Code\WebDev Övningar\Westcoast-Education\WebApi\obj\Debug\net6.0\ref\webapi.dll
+C:\Code\webdev course\westcoast education\webapi\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Code\webdev course\westcoast education\webapi\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Code\webdev course\westcoast education\webapi\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Code\webdev course\westcoast education\webapi\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll

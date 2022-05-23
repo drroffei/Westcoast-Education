@@ -59,12 +59,13 @@ namespace webapi.Controllers
             }            
         }
 
-        [HttpGet("/teachers")]
+        [HttpGet("teachers")]
         public async Task<List<TeacherViewModel>> ListAllTeachers()
         {
             return await _repository.ListAllTeachersAsync();
         }
-        [HttpGet("/teachers")]
+
+        [HttpGet("customers")]
         public async Task<List<CustomerViewModel>> ListAllCustomers()
         {
             return await _repository.ListAllCustomersAsync();

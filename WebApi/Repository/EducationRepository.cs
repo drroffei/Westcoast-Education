@@ -91,15 +91,19 @@ namespace webapi.Repository
 
         public async Task<List<TeacherViewModel>> ListAllTeachersAsync()
         {
-            var response = await _context.Teachers.ToListAsync();
+            var response = await _context.Teachers.Include(t => t.TeacherSkill).ToListAsync();
             var listTeacherVM = new List<TeacherViewModel>();
             foreach (var teacher in response)
             {
                 TeacherViewModel teacherVM = new TeacherViewModel{
                     FirstName = teacher.FirstName,
-                    LastName = teacher.LastName,
-                    Skills = teacher.TeacherSkill
+                    LastName = teacher.LastName, 
+                    Skills = new List<SkillViewModel>()
                 };
+                foreach (var skill in teacher.TeacherSkill)
+                    {
+                        teacherVM.Skills.Add(new SkillViewModel{SkillName = skill.SkillName});
+                    }
                 listTeacherVM.Add(teacherVM);
             }
 
@@ -120,6 +124,7 @@ namespace webapi.Repository
                     PhoneNumber = customer.PhoneNumber,
                     Address = customer.Address
                 };
+                listCustomerVM.Add(customerVM);
             }
 
             return listCustomerVM;

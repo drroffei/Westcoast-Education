@@ -6,6 +6,6 @@ namespace webapi.ViewModels
     {
         public string? FirstName { get; set; }
         public string? LastName { get; set; }
-        public List<Skill>? Skills { get; set; }
+        public List<SkillViewModel>? Skills { get; set; }
     }
 }

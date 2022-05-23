@@ -4,6 +4,6 @@ namespace webapi.Models
     {
         public int Id { get; set; }
         public string? SkillName { get; set; }
-        public List<Teacher> TeacherSkill { get; set; }
+        public List<Teacher> SkillTeachers { get; set; }
     }
 }
