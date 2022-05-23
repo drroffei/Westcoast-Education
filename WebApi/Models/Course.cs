@@ -23,6 +23,6 @@ namespace webapi.Models
         public List<CourseCustomerFinished>? FinishedCustomers { get; set; } = new List<CourseCustomerFinished>();
         public int TeacherId { get; set; }
         [ForeignKey("TeacherId")]
-        public Teacher? Teacher { get; set; }
+        public Teacher? Teacher { get; set; } = new Teacher();
     }
 }

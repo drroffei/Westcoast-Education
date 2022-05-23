@@ -15,6 +15,6 @@ namespace webapi.Models
         public string? PhoneNumber { get; set; }
         [Required]
         public string? Address { get; set; }
-        public List<Skill>? Skills { get; set; }
+        public List<Skill>? TeacherSkill { get; set; }
     }
 }
