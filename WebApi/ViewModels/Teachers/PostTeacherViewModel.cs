@@ -1,10 +1,9 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace webapi.Models
+namespace webapi.ViewModels.Teachers
 {
-  public class Teacher
+  public class PostTeacherViewModel
   {
-    public int Id { get; set; }
     [Required]
     public string? FirstName { get; set; }
     [Required]
@@ -15,6 +14,7 @@ namespace webapi.Models
     public string? PhoneNumber { get; set; }
     [Required]
     public string? Address { get; set; }
-    public List<Skill>? TeacherSkill { get; set; }
+    [Required]
+    public List<SkillViewModel>? TeacherSkill { get; set; }
   }
 }

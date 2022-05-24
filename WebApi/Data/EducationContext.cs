@@ -13,6 +13,8 @@ namespace webapi.Data
         public DbSet<Customer> Customers => Set<Customer>();
         public DbSet<Teacher> Teachers => Set<Teacher>();
         public DbSet<Skill> Skills => Set<Skill>();
+        public DbSet<CourseCustomerCurrent> CourseCustomerCurrent => Set<CourseCustomerCurrent>();
+        public DbSet<CourseCustomerFinished> CourseCustomerFinished => Set<CourseCustomerFinished>();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

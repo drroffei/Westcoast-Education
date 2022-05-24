@@ -110,3 +110,5 @@ C:\Code\webdev course\westcoast education\webapi\bin\Debug\net6.0\Microsoft.AspN
 C:\Code\webdev course\westcoast education\webapi\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Code\webdev course\westcoast education\webapi\bin\Debug\net6.0\Newtonsoft.Json.dll
 C:\Code\webdev course\westcoast education\webapi\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
+C:\Code\webdev course\westcoast education\webapi\bin\Debug\net6.0\AutoMapper.dll
+C:\Code\webdev course\westcoast education\webapi\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using webapi.Data;
+using webapi.Helpers;
 using webapi.Interfaces;
 using webapi.Repository;
 
@@ -17,6 +18,8 @@ builder.Services.AddControllers()
     });
 
 builder.Services.AddScoped<IEducationRepository, EducationRepository>();
+
+builder.Services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

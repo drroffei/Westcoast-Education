@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "UmzMXGtMbQRz7Z6/mhgiNdZW/g8hxUB6sB0O7oNJ17YZHcuLNqoNzslCJKw1VXPcMuxcZGyAMbFJ9lb8Q/jnug==",
+  "dgSpecHash": "z3HIvt2fljxQyEKmp3tMgkvEEfzvNIL5OlCCg+7kDQF8bXasgrhfvVUbsdyQIHEanWNX2TPvI4tkl7YGhE8PLw==",
   "success": true,
   "projectFilePath": "C:\\Code\\webdev course\\westcoast education\\webapi\\webapi.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Henke\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",
+    "C:\\Users\\Henke\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
     "C:\\Users\\Henke\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Henke\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\6.0.5\\microsoft.aspnetcore.jsonpatch.6.0.5.nupkg.sha512",
     "C:\\Users\\Henke\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\6.0.5\\microsoft.aspnetcore.mvc.newtonsoftjson.6.0.5.nupkg.sha512",

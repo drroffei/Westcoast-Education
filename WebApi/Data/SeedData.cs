@@ -205,7 +205,7 @@ namespace webapi.Data
 
             foreach (var course in coursesList)
             {
-                if (course.CourseName == "Databas")
+                if (course.CourseName == "SQL")
                 {
                     customer7.CurrentCourse = new CourseCustomerCurrent{CustomerId = customer7.Id, CourseId = course.CourseId};
                     customer8.CurrentCourse = new CourseCustomerCurrent{CustomerId = customer8.Id, CourseId = course.CourseId};
