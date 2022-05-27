@@ -18,6 +18,7 @@ builder.Services.AddControllers()
     });
 
 builder.Services.AddScoped<IEducationRepository, EducationRepository>();
+builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
 
 builder.Services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);
 
