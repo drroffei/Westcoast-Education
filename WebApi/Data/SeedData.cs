@@ -93,7 +93,7 @@ namespace webapi.Data
             Customer customer4 = new Customer
             {
                 FirstName = "Daniella",
-                LastName = "Daniellassson",
+                LastName = "Daniellasson",
                 Email = "Daniella.Daniellasson@mail.com",
                 PhoneNumber = "07098765432",
                 Address = "Huvudleden 4",
@@ -315,7 +315,7 @@ namespace webapi.Data
             {
                 CourseNumber = 1001,
                 CourseName = ".NET Fullstack",
-                Duration = 24,
+                Duration = "24 månader",
                 Category = ".NET",
                 Description = "Lorem ipsum dolor",
                 Details = "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
@@ -327,7 +327,7 @@ namespace webapi.Data
             {
                 CourseNumber = 1002,
                 CourseName = "Java Fullstack",
-                Duration = 24,
+                Duration = "24 månader",
                 Category = "Java",
                 Description = "Lorem ipsum dolor",
                 Details = "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
@@ -339,7 +339,7 @@ namespace webapi.Data
             {
                 CourseNumber = 1003,
                 CourseName = "SQL",
-                Duration = 24,
+                Duration = "6 månader",
                 Category = "Databas",
                 Description = "Lorem ipsum dolor",
                 Details = "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
@@ -351,7 +351,7 @@ namespace webapi.Data
             {
                 CourseNumber = 1004,
                 CourseName = "Webbutveckling",
-                Duration = 24,
+                Duration = "12 månader",
                 Category = "Webbutveckling",
                 Description = "Lorem ipsum dolor",
                 Details = "Lorem ipsum dolor sit amet, consectetur adipiscing elit."

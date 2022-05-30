@@ -1,0 +1,29 @@
+@page
+@model Homepage.Pages.CourseList
+@{
+    ViewData["Title"] = "CourseList";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<h4>Nuvarande kurser</h4>
+<form>
+  <input type="text" asp-for="Category" />
+  <label>Sökord</label>
+  <input type="submit" value="Sök">
+</form>
+
+<article>
+  <section class="gallery-wrapper">
+    @foreach (var course in Model.Courses)
+    {
+      <div class="card">
+        <a asp-page="/CourseDetailedView" asp-route-id="@course.CourseNumber">
+          <h5>Kursnamn: @course.CourseName</h5>
+          <p>KursNummer: @course.CourseNumber</p>
+          <p>Kursens längd: @course.Duration</p>
+        </a>
+      </div>
+    }
+  </section>
+</article>

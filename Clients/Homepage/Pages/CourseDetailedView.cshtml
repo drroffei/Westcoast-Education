@@ -1,0 +1,41 @@
+@page "{id:int?}"
+@model Homepage.Pages.CourseDetailedView
+@{
+  ViewData["Title"] = "Kursdetaljer";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<article>
+  <section>
+    <a asp-page="/CourseList">
+      <i class="fa-solid fa-arrow-left"></i> Tillbaka till listan
+    </a>
+    <table>
+      <tr>
+        <td>Kursnamn: </td>
+        <td>@Model.Course.CourseName</td>
+      </tr>
+      <tr>
+        <td>Kursnummer: </td>
+        <td>@Model.Course.CourseNumber</td>
+      </tr>
+      <tr>
+        <td>Varaktighet: </td>
+        <td>@Model.Course.Duration</td>
+      </tr>
+      <tr>
+        <td>Kategori: </td>
+        <td>@Model.Course.Category</td>
+      </tr>
+      <tr>
+        <td>Sammanfattning: </td>
+        <td>@Model.Course.Description</td>
+      </tr>
+      <tr>
+        <td>Fullständig Beskrivning: </td>
+        <td>@Model.Course.Details</td>
+      </tr>
+    </table>
+  </section>
+</article>

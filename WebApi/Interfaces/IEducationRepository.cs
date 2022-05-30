@@ -1,4 +1,5 @@
 using webapi.ViewModels;
+using WebApi.ViewModels.Courses;
 
 namespace webapi.Interfaces
 {
@@ -6,7 +7,7 @@ namespace webapi.Interfaces
   {
     public Task<bool> SaveAllAsync();
     public Task<List<CourseViewModel>> ListAllCourseAsync();
-    public Task<CourseViewModel> GetCourseByCoursenumberAsync(int courseNumber);
+    public Task<CourseDetailedViewModel> GetCourseByCoursenumberAsync(int courseNumber);
     public Task<List<CourseViewModel>> GetCoursesByCategoryAsync(string category);
     public Task CreateCourseAsync(PostCourseViewModel model);
     public Task<string> DeleteCourse(int id);

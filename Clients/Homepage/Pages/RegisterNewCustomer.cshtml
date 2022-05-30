@@ -1,0 +1,36 @@
+@page
+@model Homepage.Pages.RegisterNewCustomer
+@{
+  ViewData["Title"] = "Registrera dig som användare";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<section>
+  <h4>Ange dina uppgifter:</h4>
+  <form method="post">
+    <div>
+      <label asp-for="CustomerViewModel.FirstName"></label>
+      <input asp-for="CustomerViewModel.FirstName" />
+    </div>
+    <div>
+      <label asp-for="CustomerViewModel.LastName"></label>
+      <input asp-for="CustomerViewModel.LastName" />
+    </div>
+    <div>
+      <label asp-for="CustomerViewModel.Address"></label>
+      <input asp-for="CustomerViewModel.Address" />
+    </div>
+    <div>
+      <label asp-for="CustomerViewModel.Email"></label>
+      <input asp-for="CustomerViewModel.Email" />
+    </div>
+    <div>
+      <label asp-for="CustomerViewModel.PhoneNumber"></label>
+      <input asp-for="CustomerViewModel.PhoneNumber" />
+    </div>
+    <div>
+      <button type="submit" class="btn btn-primary">Registrera</button>
+    </div>
+  </form>
+</section>

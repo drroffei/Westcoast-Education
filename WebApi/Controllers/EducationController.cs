@@ -6,7 +6,7 @@ using webapi.ViewModels;
 namespace webapi.Controllers
 {
   [ApiController]
-  [Route("api/v1/education")]
+  [Route("api/v1/course")]
   public class EducationController : ControllerBase
   {
     private readonly EducationContext _context;

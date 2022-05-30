@@ -56,8 +56,9 @@ namespace webapi.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("Duration")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("Duration")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
 
                     b.Property<int>("TeacherId")
                         .HasColumnType("INTEGER");

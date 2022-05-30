@@ -12,7 +12,7 @@ namespace webapi.Models
     [Required]
     public string? CourseName { get; set; }
     [Required]
-    public int Duration { get; set; }
+    public string? Duration { get; set; }
     [Required]
     public string? Category { get; set; }
     [Required]
