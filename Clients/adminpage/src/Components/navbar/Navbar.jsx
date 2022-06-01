@@ -7,13 +7,13 @@ function Navbar() {
       <div className="">
         <ul className="navbar-list">
           <li className="navbar-item">
-            <NavLink to="/Customers">Customers</NavLink>
+            <NavLink to="/customers">Customers</NavLink>
           </li>
           <li className="navbar-item">
-            <NavLink to="/Teachers">Teachers</NavLink>
+            <NavLink to="/teachers">Teachers</NavLink>
           </li>
           <li className="navbar-item">
-            <NavLink to="/Courses">Courses</NavLink>
+            <NavLink to="/courses">Courses</NavLink>
           </li>
         </ul>
       </div>

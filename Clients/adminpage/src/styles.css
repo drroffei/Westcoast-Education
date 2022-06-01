@@ -15,18 +15,15 @@ a{
   padding: 2rem 20% 2rem;
   border-bottom: 2px solid black;
 }
-
 .navbar-list{
   display: flex;
   list-style: none;
 }
-
 .navbar-item{
   padding: 0rem 2rem;
   font-weight: bold;
   /* border: 1px solid pink ; */
 }
-
 .navbar a{
   color: black;
 }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "z3HIvt2fljxQyEKmp3tMgkvEEfzvNIL5OlCCg+7kDQF8bXasgrhfvVUbsdyQIHEanWNX2TPvI4tkl7YGhE8PLw==",
+  "dgSpecHash": "NmFReg4OWx2t3thn6PAj09R4wQ9jXy7cXrPaZiK9IAoleFOfwH404R2SuMqm5HYPfoOZnSsjxsLAwBYgrT3xdQ==",
   "success": true,
-  "projectFilePath": "C:\\Code\\webdev course\\westcoast education\\webapi\\webapi.csproj",
+  "projectFilePath": "C:\\Code\\WebDev Course\\Westcoast Education\\webapi\\webapi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Henke\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",
     "C:\\Users\\Henke\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
