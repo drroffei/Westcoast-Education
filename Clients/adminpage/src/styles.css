@@ -50,3 +50,18 @@ a{
 .page-item-title{
   display: flex;
 }
+
+.teacher-list{
+}
+
+.teacher-item{
+  width: 50%;
+  margin: 1rem;
+  display: flex;
+  justify-content: space-around;
+  border: 1px solid black;
+}
+
+.skills-title{
+  font-weight: bold;
+}

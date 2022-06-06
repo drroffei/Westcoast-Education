@@ -15,6 +15,6 @@ namespace webapi.ViewModels.Teachers
     [Required]
     public string? Address { get; set; }
     [Required]
-    public List<SkillViewModel>? TeacherSkill { get; set; }
+    public string? TeacherSkill { get; set; }
   }
 }

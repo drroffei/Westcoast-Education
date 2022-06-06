@@ -28,12 +28,26 @@ namespace webapi.Controllers
       }
     }
 
-    [HttpGet("/{id}")]
+    [HttpGet("{id}")]
     public async Task<ActionResult<TeacherViewModel>> GetTeacherWithId(int id)
     {
       try
       {
         var teacherVM = await _repository.GetTeacherWithIdAsync(id);
+        return Ok(teacherVM);
+      }
+      catch (System.Exception)
+      {
+        return BadRequest();
+      }
+    }
+
+    [HttpGet("details/{id}")]
+    public async Task<ActionResult<TeacherViewModel>> GetTeacherDetailsWithId(int id)
+    {
+      try
+      {
+        var teacherVM = await _repository.GetTeacherDetailsWithIdAsync(id);
         return Ok(teacherVM);
       }
       catch (System.Exception)
@@ -63,7 +77,7 @@ namespace webapi.Controllers
       }
     }
 
-    [HttpPut("/{id}")]
+    [HttpPut("{id}")]
     public async Task<ActionResult> UpdateTeacher(int id, PostTeacherViewModel model)
     {
       try
@@ -82,7 +96,7 @@ namespace webapi.Controllers
       }
     }
 
-    [HttpDelete("/{id}")]
+    [HttpDelete("{id}")]
     public async Task<ActionResult> DeleteTeacher(int id)
     {
       try

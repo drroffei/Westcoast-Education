@@ -1,9 +1,10 @@
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using webapi.Models;
 
 namespace webapi.Data
 {
-    public class EducationContext : DbContext
+    public class EducationContext : IdentityDbContext<Customer>
     {
         public EducationContext(DbContextOptions options) : base(options)
         {
@@ -19,6 +20,7 @@ namespace webapi.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //Write Fluent API configurations here
+            base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<CourseCustomerCurrent>().HasKey(cc => new{cc.CourseId, cc.CustomerId} );
             modelBuilder.Entity<CourseCustomerFinished>().HasKey(cc => new{cc.CourseId, cc.CustomerId} );
         }

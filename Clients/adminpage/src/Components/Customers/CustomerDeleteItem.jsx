@@ -1,10 +1,10 @@
 import { useNavigate } from 'react-router-dom';
 
-function CustomerUpdateItem(customer) {
+function CustomerDeleteItem(customer) {
   const navigate = useNavigate();
 
   function onEditClickHandler() {
-    navigate(`/customers/update/${customer.customer.id}`);
+    navigate(`/customers/delete/${customer.customer.id}`);
   }
 
   return (
@@ -15,7 +15,7 @@ function CustomerUpdateItem(customer) {
         <td>{customer.customer.lastName}</td>
         <td>
           <span onClick={onEditClickHandler}>
-            <i className="fa-solid fa-pen-to-square"></i>
+            <i className="fa-solid fa-trash-can"></i>
           </span>
         </td>
       </tr>
@@ -23,4 +23,4 @@ function CustomerUpdateItem(customer) {
   )
 }
 
-export default CustomerUpdateItem
+export default CustomerDeleteItem

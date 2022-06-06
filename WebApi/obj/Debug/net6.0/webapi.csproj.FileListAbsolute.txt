@@ -112,3 +112,8 @@ C:\Code\webdev course\westcoast education\webapi\bin\Debug\net6.0\Newtonsoft.Jso
 C:\Code\webdev course\westcoast education\webapi\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
 C:\Code\webdev course\westcoast education\webapi\bin\Debug\net6.0\AutoMapper.dll
 C:\Code\webdev course\westcoast education\webapi\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Code\webdev course\westcoast education\webapi\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Code\webdev course\westcoast education\webapi\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Code\webdev course\westcoast education\webapi\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Code\webdev course\westcoast education\webapi\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
+C:\Code\webdev course\westcoast education\webapi\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll

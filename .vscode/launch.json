@@ -52,6 +52,13 @@
       }
     },
     {
+      "type": "pwa-msedge",
+      "request": "launch",
+      "name": "React app adminpage",
+      "url": "http://localhost:3000",
+      "webRoot": "${workspaceFolder}"
+    },
+    {
       "name": ".NET Core Attach",
       "type": "coreclr",
       "request": "attach"

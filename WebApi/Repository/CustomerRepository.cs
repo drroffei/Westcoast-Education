@@ -40,13 +40,42 @@ namespace webapi.Repository
       return listCustomerVM;
     }
 
-    public async Task<CustomerViewModel> GetCustomerWithIdAsync(int id)
+    public async Task<CustomerViewModel> GetCustomerWithIdAsync(string id)
     {
-      var response = await _context.Customers.FindAsync(id);
+      var response = await _context.Customers.FirstOrDefaultAsync(c => c.Id == id);
       var customerVM = _mapper.Map<CustomerViewModel>(response);
       return customerVM;
     }
 
+    public async Task<CustomerDetailedViewModel> GetCustomerDetailsWithIdAsync(string id)
+    {
+      var customerResponse = await _context.Customers.FirstOrDefaultAsync(c => c.Id == id);
+
+      if (customerResponse == null)
+      {
+        throw new Exception($"Hittade ingen kund med id: {id}");
+      }
+      var currentCoursesResponse = await _context.CourseCustomerCurrent.ToListAsync();
+      var finishedCoursesResponse = await _context.CourseCustomerFinished.ToListAsync();
+
+      var customerVM = _mapper.Map<CustomerDetailedViewModel>(customerResponse);
+
+      var currentCourseToAdd = currentCoursesResponse.FirstOrDefault(c => c.CustomerId == customerVM.Id);      
+      var finishedCoursesToAdd = finishedCoursesResponse.Where(c => c.CustomerId == customerVM.Id).ToList();
+
+      if (currentCourseToAdd != null)
+      {
+        customerVM.CurrentCourse = currentCourseToAdd;
+      }
+
+      if (finishedCoursesToAdd != null)
+      {
+        customerVM.FinishedCourses.AddRange(finishedCoursesToAdd);        
+      }
+
+      
+      return customerVM;
+    }
 
     public async Task CreateCustomerAsync(PostCustomerViewModel model)
     {
@@ -54,7 +83,7 @@ namespace webapi.Repository
       await _context.Customers.AddAsync(customerToAdd);
     }
 
-    public async Task UpdateCustomerAsync(int id, PostCustomerViewModel model)
+    public async Task UpdateCustomerAsync(string id, PostCustomerViewModel model)
     {
       var customer = await _context.Customers.FindAsync(id);
       if (customer == null)
@@ -66,7 +95,7 @@ namespace webapi.Repository
       _context.Customers.Update(customer);
     }
 
-    public async Task DeleteCustomerAsync(int id)
+    public async Task DeleteCustomerAsync(string id)
     {
       var response = await _context.Customers.FindAsync(id);
       if (response == null)
@@ -99,6 +128,8 @@ namespace webapi.Repository
 
       return listCCVM;
     }
+
+    
     public async Task<bool> SaveAllAsync()
 		{
 			return await _context.SaveChangesAsync() > 0;

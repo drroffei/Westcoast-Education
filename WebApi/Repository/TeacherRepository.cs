@@ -5,6 +5,7 @@ using webapi.Interfaces;
 using webapi.Models;
 using webapi.ViewModels;
 using webapi.ViewModels.Teachers;
+using WebApi.ViewModels.Teachers;
 
 namespace webapi.Repository
 {
@@ -26,6 +27,7 @@ namespace webapi.Repository
 			{
 				TeacherViewModel teacherVM = new TeacherViewModel
 				{
+          Id = teacher.Id,
           FirstName = teacher.FirstName,
           LastName = teacher.LastName,
           Skills = new List<SkillViewModel>()
@@ -62,33 +64,39 @@ namespace webapi.Repository
       };
       return teacherVM;
     }
+    public async Task<TeacherDetailsViewModel> GetTeacherDetailsWithIdAsync(int id)
+    {
+      var response = await _context.Teachers.Include(t => t.TeacherSkill).FirstOrDefaultAsync(t => t.Id == id);
+      if (response == null)
+      {
+        throw new Exception($"No teacher with id {id} was found");
+      }
+
+      var listSkillsVM = new List<SkillViewModel>();
+
+      foreach (var skill in response.TeacherSkill)
+      {
+        var skillVM = _mapper.Map<SkillViewModel>(skill);
+        listSkillsVM.Add(skillVM);
+      }
+
+      TeacherDetailsViewModel teacherVM = new TeacherDetailsViewModel{
+        Id = response.Id,
+        FirstName = response.FirstName,
+        LastName = response.LastName,
+        Email = response.Email,
+        PhoneNumber = response.PhoneNumber,
+        Address = response.Address,
+        Skills = listSkillsVM
+      };
+      return teacherVM;
+    }
 
     public async Task CreateNewTeacherAsync(PostTeacherViewModel model)
     {
-      var listOfSkillVM = model.TeacherSkill;
+      string[] listOfSkillVM = model.TeacherSkill.Split(',');
       var listOfExistingSkills = await _context.Skills.ToListAsync();
       var listOfSkills = new List<Skill>();
-
-      foreach (var skillVM in listOfSkillVM)
-      {
-        bool skillExist = false;
-        Skill skill = _mapper.Map<Skill>(skillVM);
-
-        foreach (var existingSkill in listOfExistingSkills)
-        {
-          if (skill.SkillName == existingSkill.SkillName)
-          {
-            listOfSkills.Add(existingSkill);
-            skillExist = true;
-            break;
-          }
-        }
-        if (!skillExist)
-        {
-          await _context.Skills.AddAsync(skill);
-          listOfSkills.Add(skill);          
-        }
-      }
 
       Teacher teacher = new Teacher{
         FirstName = model.FirstName,
@@ -96,8 +104,31 @@ namespace webapi.Repository
         Email = model.Email,
         PhoneNumber = model.PhoneNumber,
         Address = model.Address,
-        TeacherSkill = listOfSkills
+        TeacherSkill = new List<Skill>()
       };
+
+      foreach (var skillVM in listOfSkillVM)
+      {
+        bool skillExist = false;
+        Skill skill = new Skill{
+          SkillName = skillVM.Trim().ToUpper()
+        };
+
+        foreach (var existingSkill in listOfExistingSkills)
+        {
+          if (skill.SkillName == existingSkill.SkillName.Trim().ToUpper())
+          {
+            teacher.TeacherSkill.Add(existingSkill);
+            skillExist = true;
+            break;
+          }
+        }
+        if (!skillExist)
+        {
+          await _context.Skills.AddAsync(skill);          
+          teacher.TeacherSkill.Add(skill);          
+        }
+      }
 
       await _context.Teachers.AddAsync(teacher);
     }
@@ -110,14 +141,17 @@ namespace webapi.Repository
         return;
       }
 
-      var listOfSkillVM = model.TeacherSkill;
+      string[] listOfSkillVM = model.TeacherSkill.Split(',');
+      // var listOfSkillVM = model.TeacherSkill;
       var listOfExistingSkills = await _context.Skills.ToListAsync();
       var listOfSkills = new List<Skill>();
 
       foreach (var skillVM in listOfSkillVM)
       {
         bool skillExist = false;
-        Skill skill = _mapper.Map<Skill>(skillVM);
+        Skill skill = new Skill{
+          SkillName = skillVM.Trim().ToUpper()
+        };
 
         foreach (var existingSkill in listOfExistingSkills)
         {
@@ -134,6 +168,7 @@ namespace webapi.Repository
           listOfSkills.Add(skill);          
         }
       }
+
       teacherToUpdate.FirstName = model.FirstName;
       teacherToUpdate.LastName = model.LastName;
       teacherToUpdate.Email = model.Email;

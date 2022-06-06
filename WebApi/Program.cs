@@ -19,6 +19,7 @@ builder.Services.AddControllers()
 
 builder.Services.AddScoped<IEducationRepository, EducationRepository>();
 builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
+builder.Services.AddScoped<ITeacherRepository, TeacherRepository>();
 
 builder.Services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);
 

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/mat4R6lkCrJni9p1WDurf8XdrYhf0+jDdRW8Aoy5xG06PTEafh9ulD4VGZWBaKGIpQw3D13cgJqKnWDHKF3KA==",
+  "dgSpecHash": "KloxCHgN4ME6MAihA21fE7T2AM84/9S4RgHvmk9vsvOA0TtgRhBpRHpmyHqQiUrb+md139Hfk9pjIRS8865g3A==",
   "success": true,
-  "projectFilePath": "C:\\Code\\webdev course\\westcoast education\\Clients\\Homepage\\Homepage.csproj",
+  "projectFilePath": "C:\\Code\\webdev course\\westcoast education\\clients\\homepage\\Homepage.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

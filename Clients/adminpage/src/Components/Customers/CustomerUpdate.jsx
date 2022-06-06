@@ -7,7 +7,7 @@ function Update() {
   useEffect(() => { loadCustomers() }, [])
 
   const loadCustomers = async () => {
-    const url = `${process.env.REACT_APP_BASEURL}/customer`;
+    const url = `${process.env.REACT_APP_BASEURL}/customers`;
     const response = await fetch(url)
 
     if (!response.ok) {
@@ -23,7 +23,7 @@ function Update() {
   return (
     <>
       <div className="page-section">
-      <NavLink to='/customers'>
+        <NavLink to='/customers'>
           <h4><i className="fa-solid fa-arrow-left"></i>Tillbaka till Customersidan</h4>
         </NavLink>
         <h2 className="page-title">Härifrån kan du uppdatera kundernas information</h2>

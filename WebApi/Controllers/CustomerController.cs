@@ -6,7 +6,7 @@ using webapi.ViewModels.Customers;
 namespace webapi.Controllers
 {
   [ApiController]
-  [Route("api/v1/customer")]
+  [Route("api/v1/customers")]
   public class CustomerController : ControllerBase
   {
     private readonly ICustomerRepository _repository;
@@ -28,12 +28,25 @@ namespace webapi.Controllers
         }
       }
 
-      [HttpGet("/{id}")]
-      public async Task<ActionResult<CustomerViewModel>> GetCustomerWithId(int Id)
+      [HttpGet("{id}")]
+      public async Task<ActionResult<CustomerViewModel>> GetCustomerWithId(string id)
       {
         try
         {
-          return Ok(await _repository.GetCustomerWithIdAsync(Id));
+          return Ok(await _repository.GetCustomerWithIdAsync(id));
+        }
+        catch (System.Exception)
+        {          
+          return StatusCode(500, "Internal server error");
+        }
+      }
+
+      [HttpGet("details/{id}")]
+      public async Task<ActionResult<CustomerDetailedViewModel>> GetCustomerDetailsWithId(string id)
+      {
+        try
+        {
+          return Ok(await _repository.GetCustomerDetailsWithIdAsync(id));
         }
         catch (System.Exception)
         {          
@@ -63,8 +76,8 @@ namespace webapi.Controllers
         }
       }
 
-      [HttpPut("/{id}")]
-      public async Task<ActionResult> UpdateCustomer(int id, PostCustomerViewModel model)
+      [HttpPut("{id}")]
+      public async Task<ActionResult> UpdateCustomer(string id, PostCustomerViewModel model)
       {
         try
         {
@@ -85,8 +98,8 @@ namespace webapi.Controllers
         } 
       }
 
-      [HttpDelete("/{id}")]
-      public async Task<ActionResult> DeleteCustomer(int id)
+      [HttpDelete("{id}")]
+      public async Task<ActionResult> DeleteCustomer(string id)
       {
         try
         {
@@ -107,7 +120,7 @@ namespace webapi.Controllers
         }
       }
 
-      [HttpGet("/currentcourses")]
+      [HttpGet("currentcourses")]
       public async Task<ActionResult<List<CourseCustomerCurrentViewModel>>> CurrentCoursesCustomers()
       {
         try

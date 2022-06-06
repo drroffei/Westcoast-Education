@@ -7,7 +7,7 @@ function Read() {
   useEffect(() => { loadCustomers() }, [])
 
   const loadCustomers = async () => {
-    const url = `${process.env.REACT_APP_BASEURL}/customer`;
+    const url = `${process.env.REACT_APP_BASEURL}/customers`;
     const response = await fetch(url)
 
     if (!response.ok) {
