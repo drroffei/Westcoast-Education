@@ -9,5 +9,6 @@ namespace WebApi.ViewModels.Courses
     public string? Category { get; set; }
     public string? Description { get; set; }
     public string? Details { get; set; }
+    public int TeacherId { get; set; }
   }
 }

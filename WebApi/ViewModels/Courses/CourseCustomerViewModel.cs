@@ -1,10 +1,10 @@
-using webapi.Models;
-
 namespace webapi.ViewModels
 {
-    public class CourseCustomerCurrentViewModel
+  public class CourseCustomerViewModel
     {
-        public CourseViewModel CourseVM { get; set; }
-        public CustomerViewModel CustomerVM { get; set; }
+        public int CourseNumber { get; set; }
+        public string CourseName { get; set; }
+        public string CustomerFirstname { get; set; }
+        public string CustomerLastName { get; set; }
     }
 }

@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using webapi.Data;
 using webapi.Interfaces;
 using webapi.ViewModels;
+using WebApi.ViewModels.Courses;
 
 namespace webapi.Controllers
 {
@@ -46,7 +47,7 @@ namespace webapi.Controllers
     }
 
     [HttpGet("bycoursenumber/{coursenumber}")]
-    public async Task<ActionResult<CourseViewModel>> GetCoursesByCoursenumber(int coursenumber)
+    public async Task<ActionResult<CourseDetailedViewModel>> GetCoursesByCoursenumber(int coursenumber)
     {
       try
       {
@@ -93,7 +94,6 @@ namespace webapi.Controllers
         {
           return BadRequest();
         }
-
       }
       catch (System.Exception)
       {
@@ -101,12 +101,12 @@ namespace webapi.Controllers
       }
     }
 
-    [HttpDelete("{id}")]
-    public async Task<ActionResult> DeleteCourse(int id)
+    [HttpDelete("{courseNumber}")]
+    public async Task<ActionResult> DeleteCourse(int courseNumber)
     {
       try
       {
-        var statusmessage = await _repository.DeleteCourse(id);
+        var statusmessage = await _repository.DeleteCourse(courseNumber);
         if (await _repository.SaveAllAsync())
         {
           return Ok(statusmessage);

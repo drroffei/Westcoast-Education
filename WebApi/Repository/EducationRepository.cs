@@ -35,17 +35,17 @@ namespace webapi.Repository
       await _context.Courses.AddAsync(course);
     }
 
-    public async Task<string> DeleteCourse(int id)
+    public async Task<string> DeleteCourse(int courseNumber)
     {
-      var response = await _context.Courses.FindAsync(id);
+      var response = await _context.Courses.FirstOrDefaultAsync(c => c.CourseNumber == courseNumber);
       if (response == null)
       {
-        return ($"No course with id {id} was found, nothing was removed");
+        return ($"No course with courseNumber {courseNumber} was found, nothing was removed");
       }
       else
       {
         _context.Courses.Remove(response);
-        return ($"Course with id {id} was removed from the database");
+        return ($"Course with courseNumber {courseNumber} was removed from the database");
       }
     }
 
@@ -85,7 +85,8 @@ namespace webapi.Repository
         Duration = response.Duration,
         Category = response.Category,
         Description = response.Description,
-        Details = response.Details
+        Details = response.Details,
+        TeacherId = response.TeacherId        
       };
 
       return courseDetailedVM;

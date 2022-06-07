@@ -246,7 +246,6 @@ namespace webapi.Data
             await _context.SaveChangesAsync();
 
             return true;
-
         }
 
         public static async Task<bool> SeedTeachers(EducationContext _context)

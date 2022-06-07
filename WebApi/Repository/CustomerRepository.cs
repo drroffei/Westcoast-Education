@@ -105,23 +105,23 @@ namespace webapi.Repository
       _context.Customers.Remove(response);
     }
 
-    public async Task<List<CourseCustomerCurrentViewModel>> ListCustomersAndCurrentCourses()
+    public async Task<List<CourseCustomerViewModel>> ListCustomersAndCurrentCourses()
     {
       var response = await _context.CourseCustomerCurrent.Include(c => c.Customer).Include(c => c.Course).ToListAsync();
-      List<CourseCustomerCurrentViewModel> listCCVM = new List<CourseCustomerCurrentViewModel>();
+      List<CourseCustomerViewModel> listCCVM = new List<CourseCustomerViewModel>();
 
       foreach (var courseCustomer in response)
       {
         var course = courseCustomer.Course;
-        var courseVM = _mapper.Map<CourseViewModel>(course);
         var customer = courseCustomer.Customer;
-        var customerVM = _mapper.Map<CustomerViewModel>(customer);
 
         listCCVM.Add(
-          new CourseCustomerCurrentViewModel
+          new CourseCustomerViewModel
           {
-            CourseVM = courseVM,
-            CustomerVM = customerVM
+            CourseNumber = course.CourseNumber,
+            CourseName = course.CourseName,
+            CustomerFirstname = customer.FirstName,
+            CustomerLastName = customer.LastName
           }
         );
       };

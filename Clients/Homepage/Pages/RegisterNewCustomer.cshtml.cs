@@ -25,7 +25,7 @@ namespace Homepage.Pages
     {
       var baseUrl = _config.GetValue<string>("baseUrl");
       using var http = new HttpClient();
-      var url = $"{baseUrl}/customer";
+      var url = $"{baseUrl}/customers";
 
       var response = await http.PostAsJsonAsync(url, CustomerViewModel);
       if (!response.IsSuccessStatusCode)

@@ -10,6 +10,8 @@ import CustomerUpdate from './Components/Customers/CustomerUpdate';
 import CustomerUpdateDetailedView from './Components/Customers/CustomerUpdateDetailedView';
 import CustomerDelete from './Components/Customers/CustomerDelete';
 import CustomerDeleteConfirm from './Components/Customers/CustomerDeleteConfirm';
+
+import TeachersMain from './Components/Teachers/TeachersMain';
 import TeacherCreate from './Components/Teachers/TeachersCreate';
 import TeachersRead from './Components/Teachers/TeachersRead';
 import TeachersUpdate from './Components/Teachers/TeachersUpdate';
@@ -17,9 +19,11 @@ import TeachersUpdateDetailedView from './Components/Teachers/TeachersUpdateDeta
 import TeachersDelete from './Components/Teachers/TeachersDelete';
 import TeachersDeleteConfirmation from './Components/Teachers/TeachersDeleteConfirmation';
 
-
-import TeachersMain from './Components/Teachers/TeachersMain';
 import CoursesMain from './Components/Courses/CoursesMain';
+import CoursesCreate from './Components/Courses/CoursesCreate';
+import CourseList from './Components/Courses/CourseList';
+import CoursesUpdate from './Components/Courses/CoursesUpdate';
+import CoursesDelete from './Components/Courses/CoursesDelete';
 
 import './styles.css'
 
@@ -45,10 +49,10 @@ function App() {
           <Route path='/teachers/delete' element={<TeachersDelete />} />
           <Route path='/teachers/delete/:id' element={<TeachersDeleteConfirmation />} />
           <Route path='/courses' element={<CoursesMain />} />
-          <Route path='/courses/create' element={<CoursesMain />} />
-          <Route path='/courses/read' element={<CoursesMain />} />
-          <Route path='/courses/update' element={<CoursesMain />} />
-          <Route path='/courses/delete' element={<CoursesMain />} />
+          <Route path='/courses/create' element={<CoursesCreate />} />
+          <Route path='/courses/courselist' element={<CourseList />} />
+          <Route path='/courses/update/:id' element={<CoursesUpdate />} />
+          <Route path='/courses/delete/:id' element={<CoursesDelete />} />
         </Routes>
       </main>
     </Router>

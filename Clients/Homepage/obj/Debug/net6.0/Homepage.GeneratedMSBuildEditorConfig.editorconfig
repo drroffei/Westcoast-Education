@@ -8,49 +8,49 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Homepage
 build_property.RootNamespace = Homepage
-build_property.ProjectDir = C:\Code\webdev course\westcoast education\clients\homepage\
+build_property.ProjectDir = C:\Code\webdev course\westcoast education\clients\Homepage\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Code\webdev course\westcoast education\clients\homepage
+build_property.MSBuildProjectDirectory = C:\Code\webdev course\westcoast education\clients\Homepage
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Code/webdev course/westcoast education/clients/homepage/Pages/CourseDetailedView.cshtml]
+[C:/Code/webdev course/westcoast education/clients/Homepage/Pages/CourseDetailedView.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291cnNlRGV0YWlsZWRWaWV3LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Code/webdev course/westcoast education/clients/homepage/Pages/CourseList.cshtml]
+[C:/Code/webdev course/westcoast education/clients/Homepage/Pages/CourseList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291cnNlTGlzdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Code/webdev course/westcoast education/clients/homepage/Pages/Error.cshtml]
+[C:/Code/webdev course/westcoast education/clients/Homepage/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Code/webdev course/westcoast education/clients/homepage/Pages/Index.cshtml]
+[C:/Code/webdev course/westcoast education/clients/Homepage/Pages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Code/webdev course/westcoast education/clients/homepage/Pages/Privacy.cshtml]
+[C:/Code/webdev course/westcoast education/clients/Homepage/Pages/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Code/webdev course/westcoast education/clients/homepage/Pages/RegisterNewCustomer.cshtml]
+[C:/Code/webdev course/westcoast education/clients/Homepage/Pages/RegisterNewCustomer.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVnaXN0ZXJOZXdDdXN0b21lci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Code/webdev course/westcoast education/clients/homepage/Pages/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Code/webdev course/westcoast education/clients/Homepage/Pages/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Code/webdev course/westcoast education/clients/homepage/Pages/_ViewImports.cshtml]
+[C:/Code/webdev course/westcoast education/clients/Homepage/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Code/webdev course/westcoast education/clients/homepage/Pages/_ViewStart.cshtml]
+[C:/Code/webdev course/westcoast education/clients/Homepage/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Code/webdev course/westcoast education/clients/homepage/Pages/Shared/_Layout.cshtml]
+[C:/Code/webdev course/westcoast education/clients/Homepage/Pages/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-3djhextma6

@@ -4,6 +4,7 @@ import TeacherReadItem from "./TeachersReadItem"
 
 function TeachersRead() {
   const [teachersList, setTeachersList] = useState([]);
+  const [searchword, setSearchWord] = useState([]);
   useEffect(() => { loadTeachers() }, [])
 
   const loadTeachers = async () => {
@@ -18,7 +19,12 @@ function TeachersRead() {
     }
     setTeachersList(await response.json())
   }
+
+  const onHandleSearchBoxChange = (e) => {
+    setSearchWord(e.target.value)
+  }
   console.log(teachersList)
+  console.log(searchword)
 
   return (
     <>
@@ -27,14 +33,18 @@ function TeachersRead() {
           <h4><i className="fa-solid fa-arrow-left"></i>Tillbaka till Teachersidan</h4>
         </NavLink>
         <h2 className="page-title">Här kan du se alla lärare:</h2>
+        <div className="form-control">
+          <label htmlFor="">Sök på färdigheter</label>
+          <input onChange={onHandleSearchBoxChange} value={searchword} type="text" id='searchword' name='searchword' />
+        </div>
         <div className="teacher-list">
           {teachersList.map((teacher) => (
-            <div className="teacher-item">
-              <TeacherReadItem
-                teacher={teacher}
-                key={teacher.id} />
-            </div>
-          ))}
+            <TeacherReadItem
+              teacher={teacher}
+              key={teacher.id}
+              searchword={searchword} />
+              ))}
+              
         </div>
       </div>
     </>

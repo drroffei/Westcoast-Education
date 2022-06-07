@@ -32,12 +32,12 @@ a{
   margin-left: 20%;
   margin-right: 20%;
   justify-items: center;
-  border: 1px solid pink;
+  border: 1px solid gray;
   padding: 0.5rem;
 }
 .page-title{
   margin: 2rem 0;
-  border: 1px solid lightgreen;
+  /* border: 1px solid lightgreen; */
 }
 .page-content{
   display: flex;
@@ -53,7 +53,6 @@ a{
 
 .teacher-list{
 }
-
 .teacher-item{
   width: 50%;
   margin: 1rem;
@@ -61,7 +60,6 @@ a{
   justify-content: space-around;
   border: 1px solid black;
 }
-
 .skills-title{
   font-weight: bold;
 }

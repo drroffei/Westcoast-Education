@@ -40,7 +40,7 @@ function Create() {
   }
 
   const saveCustomer = async (customer) => {
-    const url = `${process.env.REACT_APP_BASEURL}/customer`
+    const url = `${process.env.REACT_APP_BASEURL}/customers`
     const response = await fetch(url, {
       method: 'POST',
       headers: {

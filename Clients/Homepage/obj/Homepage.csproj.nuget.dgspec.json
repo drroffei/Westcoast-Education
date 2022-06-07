@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Code\\webdev course\\westcoast education\\clients\\homepage\\Homepage.csproj": {}
+    "C:\\Code\\webdev course\\westcoast education\\clients\\Homepage\\Homepage.csproj": {}
   },
   "projects": {
-    "C:\\Code\\webdev course\\westcoast education\\clients\\homepage\\Homepage.csproj": {
+    "C:\\Code\\webdev course\\westcoast education\\clients\\Homepage\\Homepage.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Code\\webdev course\\westcoast education\\clients\\homepage\\Homepage.csproj",
+        "projectUniqueName": "C:\\Code\\webdev course\\westcoast education\\clients\\Homepage\\Homepage.csproj",
         "projectName": "Homepage",
-        "projectPath": "C:\\Code\\webdev course\\westcoast education\\clients\\homepage\\Homepage.csproj",
+        "projectPath": "C:\\Code\\webdev course\\westcoast education\\clients\\Homepage\\Homepage.csproj",
         "packagesPath": "C:\\Users\\Henke\\.nuget\\packages\\",
-        "outputPath": "C:\\Code\\webdev course\\westcoast education\\clients\\homepage\\obj\\",
+        "outputPath": "C:\\Code\\webdev course\\westcoast education\\clients\\Homepage\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

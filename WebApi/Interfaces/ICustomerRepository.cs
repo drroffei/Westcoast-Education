@@ -11,7 +11,7 @@ namespace webapi.Interfaces
     public Task CreateCustomerAsync(PostCustomerViewModel model);
     public Task UpdateCustomerAsync(string id, PostCustomerViewModel model);
     public Task DeleteCustomerAsync(string id);
-    public Task<List<CourseCustomerCurrentViewModel>> ListCustomersAndCurrentCourses();
+    public Task<List<CourseCustomerViewModel>> ListCustomersAndCurrentCourses();
     public Task<bool> SaveAllAsync();
 
   }

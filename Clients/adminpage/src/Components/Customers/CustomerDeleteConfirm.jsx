@@ -64,7 +64,7 @@ function CustomerDeleteConfirm() {
 
     if (response.status >= 200 && response.status <= 299) {
       alert('Kunden togs bort från databasen')
-    } 
+    }
     else {
       alert('VARNING: Kunden togs INTE bort');
     }
@@ -105,8 +105,8 @@ function CustomerDeleteConfirm() {
               </div>
               <div className="button">
                 <p>Bekräfta borttagning genom att klicka på: <span onClick={onEditClickHandler}>
-            <i className="fa-solid fa-trash-can"></i>
-          </span></p>
+                  <i className="fa-solid fa-trash-can"></i>
+                </span></p>
               </div>
             </form>
           </div>

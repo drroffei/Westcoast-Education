@@ -121,7 +121,7 @@ namespace webapi.Controllers
       }
 
       [HttpGet("currentcourses")]
-      public async Task<ActionResult<List<CourseCustomerCurrentViewModel>>> CurrentCoursesCustomers()
+      public async Task<ActionResult<List<CourseCustomerViewModel>>> CurrentCoursesCustomers()
       {
         try
         {
